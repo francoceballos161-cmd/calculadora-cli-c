@@ -51,7 +51,7 @@ int main(){
 				if (fnum2 == 0){
 					printf ("Error: no se puede dividir por cero.\n");
 				} else {
-					printf("%.2f / %.2f = %.2f\n", fnum1, fnum2, fnum1 / fnum2);
+					printf("%.0f / %.0f = %.2f\n", fnum1, fnum2, fnum1 / fnum2);
 				}
 				break;
 			default:
