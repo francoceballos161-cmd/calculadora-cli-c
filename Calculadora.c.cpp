@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int main(){
 	
@@ -13,11 +14,13 @@ int main(){
 	printf ("2. Restar dos numeros\n");
 	printf ("3. Multiplicar dos numeros\n");
 	printf ("4. Dividir dos numeros\n");
-	printf ("5. Salir\n");
-	printf ("Elija una opcion (1-5): ");
+	printf ("5. Potencia de un numero\n");
+	printf ("6. Raiz de un numero\n");
+	printf ("7. Salir\n");
+	printf ("Elija una opcion (1-7): ");
 	scanf ("%d", &opcion);
 	
-	while (opcion != 5) {
+	while (opcion != 7) {
 		switch  (opcion) {
 			case 1:
 				printf ("Ingrese el primer numero: ");
@@ -54,8 +57,26 @@ int main(){
 					printf("%.0f / %.0f = %.2f\n", fnum1, fnum2, fnum1 / fnum2);
 				}
 				break;
+			case 5:
+				printf ("Ingrese el numero: ");
+				scanf ("%d", &num1);
+				printf ("Ingrese la potencia: ");
+				scanf ("%d", &num2);
+				printf ("%d ^ %d = %.0f\n", num1, num2, pow(num1, num2)); // pow() para potencias     
+				break;
+			case 6: 
+				printf ("Ingrese numero: ");
+				scanf ("%d", &num1);
+				printf ("Ingrese el indice de la raiz: ");
+				scanf ("%d", &num2);
+				if (num1 < 0) {
+					printf ("Error: no se puede calcular raiz de un numero negativo.\n");
+				} else {
+					printf("Raiz %d de %d = %.2f\n", num2, num1, pow(num1, 1.0/num2));
+				}	
+				break;		
 			default:
-				printf("Opcion invalida, elija 1, 2, 3, 4 o 5.\n");
+				printf("Opcion invalida, elija 1, 2, 3, 4, 5, 6 o 7.\n");
 				break;	
 		}
 		
@@ -64,8 +85,10 @@ int main(){
 		printf ("2. Restar dos numeros\n");
 		printf ("3. Multiplicar dos numeros\n");
 		printf ("4. Dividir dos numeros\n");
-		printf ("5. Salir\n");
-		printf ("Elija una opcion (1-5): ");
+		printf ("5. Potencia de un numero\n");
+		printf ("6. Raiz de un numero\n");
+		printf ("7. Salir\n");
+		printf ("Elija una opcion (1-7): ");
 		scanf ("%d", &opcion);
 	}
 	
@@ -73,6 +96,5 @@ int main(){
 	printf ("Suma acumulada: %d\n", suma);
 	printf ("Resta acumulada: %d\n", resta);
 	printf ("Multiplicacion acumulada: %d\n", multiplicacion);
-	
 	return 0;
 }
