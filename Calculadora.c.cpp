@@ -8,6 +8,7 @@ int main(){
 	int resta = 0;
 	int multiplicacion = 0;
 	float fnum1, fnum2;
+	float area = 0;
 	
 	printf ("=== MENU INTERACTIVO ===\n");
 	printf ("1. Sumar dos numeros\n");
@@ -16,11 +17,12 @@ int main(){
 	printf ("4. Dividir dos numeros\n");
 	printf ("5. Potencia de un numero\n");
 	printf ("6. Raiz de un numero\n");
-	printf ("7. Salir\n");
-	printf ("Elija una opcion (1-7): ");
+	printf ("7. Geometria\n");
+	printf ("8. Salir\n");
+	printf ("Elija una opcion (1-8): ");
 	scanf ("%d", &opcion);
 	
-	while (opcion != 7) {
+	while (opcion != 8) {
 		switch  (opcion) {
 			case 1:
 				printf ("Ingrese el primer numero: ");
@@ -74,12 +76,36 @@ int main(){
 				} else {
 					printf("Raiz %d de %d = %.2f\n", num2, num1, pow(num1, 1.0/num2));
 				}	
-				break;		
+				break;
+			case 7: // Geometria en el menu principal
+				printf ("=== GEOMETRIA ===\n");
+				printf ("1. Rectangulo\n");
+				printf ("2. Circulo\n");
+				printf ("Elija una opcion (1-2): ");
+				int opGeo; // Variable nueva solo para el submenu
+				scanf ("%d", &opGeo);
+				
+				switch (opGeo) {
+					case 1: 
+						printf ("Ingrese base del rectangulo: ");
+						scanf ("%f", &fnum1);
+						printf ("Ingrese altura del rectangulo: ");
+						scanf ("%f", &fnum2);
+						area = fnum1 * fnum2;
+						printf ("El area del rectangulo es: %.2f\n", area);
+						printf ("Perimetro del rectangulo: %.2f\n", 2 * (fnum1 + fnum2)); 	
+						break;
+					case 2: 
+						printf ("Ingrese el radio del circulo: ");
+						scanf ("%f", &fnum1);
+						printf ("Area del circulo: %.2f\n", M_PI * pow(fnum1, 2)); //Valor de Pi definido en math.h
+						printf ("Perimetro del circulo: %.2f\n", 2 * M_PI * fnum1); // 2 * Pi * radio
+				}
+				break;
 			default:
-				printf("Opcion invalida, elija 1, 2, 3, 4, 5, 6 o 7.\n");
+				printf("Opcion invalida.\n");
 				break;	
 		}
-		
 		printf ("\n=== MENU INTERACTIVO ===\n");
 		printf ("1. Sumar dos numeros\n");
 		printf ("2. Restar dos numeros\n");
@@ -87,11 +113,11 @@ int main(){
 		printf ("4. Dividir dos numeros\n");
 		printf ("5. Potencia de un numero\n");
 		printf ("6. Raiz de un numero\n");
-		printf ("7. Salir\n");
-		printf ("Elija una opcion (1-7): ");
+		printf ("7. Geometria\n");
+		printf ("8. Salir\n");
+		printf ("Elija una opcion (1-8): ");
 		scanf ("%d", &opcion);
 	}
-	
 	printf ("¡Hasta luego!\n");
 	printf ("Suma acumulada: %d\n", suma);
 	printf ("Resta acumulada: %d\n", resta);
